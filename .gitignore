@@ -9,3 +9,16 @@ dist/
 !.env.example
 coverage/
 .tsbuildinfo
+
+# VitePress build artifacts + local dev cache
+docs/.vitepress/cache/
+docs/.vitepress/dist/
+
+# npm pack artifacts
+*.tgz
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
