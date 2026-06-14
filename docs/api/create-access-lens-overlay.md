@@ -52,4 +52,4 @@ Styles are injected once via a `<style id="access-lens-overlay-styles">` tag; no
 
 ## See also
 
-- [`@access-lens/dom` README](https://github.com/shahar-amir/access-lens/tree/main/packages/dom)
+- [`@access-lens/dom` README](https://github.com/Shaharamir/access-lens/tree/main/packages/dom)

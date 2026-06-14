@@ -25,4 +25,4 @@ Copy-paste patterns for the common SaaS access-control problems.
 
 See also: [Backend integration overview](/guide/backend-integration) — the four wiring patterns and how to choose between them.
 
-Want a recipe that's not here? [Open an issue](https://github.com/shahar-amir/access-lens/issues/new?template=recipe-request.md) — every recurring SaaS pattern is fair game.
+Want a recipe that's not here? [Open an issue](https://github.com/Shaharamir/access-lens/issues/new?template=recipe-request.md) — every recurring SaaS pattern is fair game.

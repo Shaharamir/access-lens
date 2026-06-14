@@ -56,7 +56,7 @@ export default defineConfig({
         items: [
           {
             text: "Changelog",
-            link: "https://github.com/shahar-amir/access-lens/blob/main/CHANGELOG.md",
+            link: "https://github.com/Shaharamir/access-lens/blob/main/CHANGELOG.md",
           },
           {
             text: "npm · @access-lens/core",
@@ -172,7 +172,7 @@ export default defineConfig({
     },
 
     socialLinks: [
-      { icon: "github", link: "https://github.com/shahar-amir/access-lens" },
+      { icon: "github", link: "https://github.com/Shaharamir/access-lens" },
       {
         icon: "npm",
         link: "https://www.npmjs.com/package/@access-lens/core",
@@ -190,7 +190,7 @@ export default defineConfig({
 
     editLink: {
       pattern:
-        "https://github.com/shahar-amir/access-lens/edit/main/docs/:path",
+        "https://github.com/Shaharamir/access-lens/edit/main/docs/:path",
       text: "Edit this page on GitHub",
     },
   },

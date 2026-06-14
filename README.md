@@ -12,7 +12,7 @@ Authorization observability for SaaS apps. Record every gated UI decision with t
   <a href="https://www.npmjs.com/package/@access-lens/core"><img src="https://img.shields.io/npm/v/@access-lens/core?label=%40access-lens%2Fcore&style=flat-square&color=2563eb" alt="@access-lens/core npm version" /></a>
   <a href="https://www.npmjs.com/package/@access-lens/react"><img src="https://img.shields.io/npm/v/@access-lens/react?label=%40access-lens%2Freact&style=flat-square&color=2563eb" alt="@access-lens/react npm version" /></a>
   <a href="https://bundlephobia.com/package/@access-lens/core"><img src="https://img.shields.io/bundlephobia/minzip/@access-lens/core?label=core%20gzipped&style=flat-square&color=10b981" alt="bundle size" /></a>
-  <a href="https://github.com/shahar-amir/access-lens/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue?style=flat-square" alt="MIT License" /></a>
+  <a href="https://github.com/Shaharamir/access-lens/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue?style=flat-square" alt="MIT License" /></a>
   <img src="https://img.shields.io/badge/types-included-3178c6?style=flat-square" alt="TypeScript included" />
   <img src="https://img.shields.io/badge/tests-42%20passing-10b981?style=flat-square" alt="42 tests passing" />
 </p>
@@ -248,7 +248,7 @@ Access Lens makes that lookup a `hover` instead of a `grep`. Every gated surface
 ## 🏎️ Run the demo
 
 ```bash
-git clone https://github.com/shahar-amir/access-lens
+git clone https://github.com/Shaharamir/access-lens
 cd access-lens
 pnpm install
 pnpm dev:demo
@@ -297,9 +297,9 @@ pnpm dev:demo
 
 ## ⭐ If this saved your support team an afternoon
 
-[![Star on GitHub](https://img.shields.io/github/stars/shahar-amir/access-lens?style=social)](https://github.com/shahar-amir/access-lens/stargazers)
-[![Share on X](https://img.shields.io/badge/share%20on-X-000?style=flat-square)](https://twitter.com/intent/tweet?text=Just%20found%20Access%20Lens%20%E2%80%94%20hover%20any%20UI%20element%20in%20your%20SaaS%20app%20and%20see%20EXACTLY%20why%20it%27s%20hidden%20from%20a%20tenant.%20Permissions%20%2B%20plans%20%2B%20flags%20%2B%20entitlements%20unified.%20%F0%9F%94%8D&url=https%3A%2F%2Fgithub.com%2Fshahar-amir%2Faccess-lens)
-[![Share on HN](https://img.shields.io/badge/share%20on-HN-ff6600?style=flat-square)](https://news.ycombinator.com/submitlink?u=https%3A%2F%2Fgithub.com%2Fshahar-amir%2Faccess-lens&t=Show%20HN%3A%20Access%20Lens%20%E2%80%94%20see%20why%20a%20tenant%20can%27t%20see%20a%20feature%20in%20your%20SaaS%20app)
+[![Star on GitHub](https://img.shields.io/github/stars/Shaharamir/access-lens?style=social)](https://github.com/Shaharamir/access-lens/stargazers)
+[![Share on X](https://img.shields.io/badge/share%20on-X-000?style=flat-square)](https://twitter.com/intent/tweet?text=Just%20found%20Access%20Lens%20%E2%80%94%20hover%20any%20UI%20element%20in%20your%20SaaS%20app%20and%20see%20EXACTLY%20why%20it%27s%20hidden%20from%20a%20tenant.%20Permissions%20%2B%20plans%20%2B%20flags%20%2B%20entitlements%20unified.%20%F0%9F%94%8D&url=https%3A%2F%2Fgithub.com%2FShaharamir%2Faccess-lens)
+[![Share on HN](https://img.shields.io/badge/share%20on-HN-ff6600?style=flat-square)](https://news.ycombinator.com/submitlink?u=https%3A%2F%2Fgithub.com%2FShaharamir%2Faccess-lens&t=Show%20HN%3A%20Access%20Lens%20%E2%80%94%20see%20why%20a%20tenant%20can%27t%20see%20a%20feature%20in%20your%20SaaS%20app)
 
 Tell your support team. They'll thank you.
 
