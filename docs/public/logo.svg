@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" fill="none">
+  <defs>
+    <linearGradient id="al-water" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#7dd3fc" stop-opacity="0.55"/>
+      <stop offset="60%"  stop-color="#38bdf8" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#0ea5e9" stop-opacity="0"/>
+    </linearGradient>
+    <clipPath id="al-lens-clip">
+      <circle cx="56" cy="56" r="36"/>
+    </clipPath>
+  </defs>
+
+  <!-- Scan line — left dashes -->
+  <g stroke="#38bdf8" stroke-width="4.5" stroke-linecap="round">
+    <line x1="2"  y1="62" x2="6"  y2="62"/>
+    <line x1="11" y1="62" x2="22" y2="62"/>
+  </g>
+  <!-- Scan line — right dashes -->
+  <g stroke="#38bdf8" stroke-width="4.5" stroke-linecap="round">
+    <line x1="92"  y1="62" x2="105" y2="62"/>
+    <line x1="110" y1="62" x2="114" y2="62"/>
+  </g>
+
+  <!-- Magnifying glass ring (navy) -->
+  <circle cx="56" cy="56" r="36" stroke="#0e2a6b" stroke-width="6.5"/>
+
+  <!-- Cyan "water" filling the lower half, clipped to the lens circle -->
+  <g clip-path="url(#al-lens-clip)">
+    <rect x="20" y="62" width="72" height="40" fill="url(#al-water)"/>
+    <!-- Water surface highlight -->
+    <line x1="20" y1="62.3" x2="92" y2="62.3" stroke="#38bdf8" stroke-width="1.6" opacity="0.9"/>
+  </g>
+
+  <!-- "</>" brackets in the top half -->
+  <g stroke="#2563ff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <!-- Left bracket -->
+    <path d="M 47 38 L 38 50 L 47 62"/>
+    <!-- Right bracket -->
+    <path d="M 65 38 L 74 50 L 65 62"/>
+  </g>
+  <!-- Center slash (deep navy) -->
+  <line x1="60" y1="36" x2="52" y2="64" stroke="#0e2a6b" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- Code lines in lower half (light cyan) -->
+  <g stroke="#38bdf8" stroke-width="5" stroke-linecap="round">
+    <line x1="36" y1="74" x2="52" y2="74"/>
+    <line x1="56" y1="74" x2="74" y2="74"/>
+    <line x1="40" y1="82" x2="56" y2="82"/>
+    <line x1="60" y1="82" x2="72" y2="82"/>
+  </g>
+
+  <!-- Handle: navy, 45° to bottom right -->
+  <line x1="83" y1="83" x2="116" y2="116" stroke="#0e2a6b" stroke-width="9" stroke-linecap="round"/>
+</svg>

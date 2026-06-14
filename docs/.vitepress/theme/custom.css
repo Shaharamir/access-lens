@@ -1,0 +1,611 @@
+/* ============================================================
+   Access Lens — custom theme
+   Goals: distinctive, professional, NOT boring. Subtle motion,
+   confident color, but readable text and accessible contrast.
+   ============================================================ */
+
+:root {
+  /* Brand */
+  --vp-c-brand-1: #2563eb;
+  --vp-c-brand-2: #1d4ed8;
+  --vp-c-brand-3: #1e40af;
+  --vp-c-brand-soft: rgba(37, 99, 235, 0.14);
+
+  /* Accents used by the hero gradient */
+  --al-accent-from: #2563eb;
+  --al-accent-via:  #7c3aed;
+  --al-accent-to:   #06b6d4;
+
+  /* Surface tints */
+  --al-grid-line: rgba(15, 23, 42, 0.06);
+  --al-glow: rgba(37, 99, 235, 0.16);
+}
+
+.dark {
+  --vp-c-brand-1: #60a5fa;
+  --vp-c-brand-2: #3b82f6;
+  --vp-c-brand-3: #2563eb;
+  --vp-c-brand-soft: rgba(96, 165, 250, 0.16);
+
+  --al-accent-from: #60a5fa;
+  --al-accent-via:  #a78bfa;
+  --al-accent-to:   #22d3ee;
+
+  --al-grid-line: rgba(255, 255, 255, 0.05);
+  --al-glow: rgba(96, 165, 250, 0.22);
+}
+
+/* ============================================================
+   HERO — gradient name, animated background, polished CTAs
+   ============================================================ */
+
+.VPHome {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle grid background on the whole home */
+.VPHome::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, var(--al-grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--al-grid-line) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 90%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 90%);
+  z-index: 0;
+}
+
+.VPHero {
+  position: relative;
+  z-index: 1;
+  padding-top: 4rem !important;
+  padding-bottom: 4rem !important;
+}
+
+/* Make the main name pop with a gradient that gently shifts */
+.VPHero .name .clip {
+  background: linear-gradient(
+    90deg,
+    var(--al-accent-from),
+    var(--al-accent-via),
+    var(--al-accent-to),
+    var(--al-accent-via),
+    var(--al-accent-from)
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+  animation: al-shimmer 14s ease-in-out infinite;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+@keyframes al-shimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50%      { background-position: 100% 50%; }
+}
+
+/* Tagline reads as a confident subhead */
+.VPHero .text {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--vp-c-text-1);
+}
+
+.VPHero .tagline {
+  color: var(--vp-c-text-2);
+  max-width: 36rem;
+}
+
+/* CTA buttons with a faint glow on the primary one */
+.VPHero .actions .VPButton.brand {
+  background: linear-gradient(135deg, var(--al-accent-from), var(--al-accent-via));
+  border-color: transparent;
+  color: white;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.2) inset,
+    0 6px 20px var(--al-glow);
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+.VPHero .actions .VPButton.brand:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.2) inset,
+    0 12px 28px var(--al-glow);
+}
+
+.VPHero .actions .VPButton.alt {
+  background: var(--vp-c-bg-soft);
+  border-color: var(--vp-c-divider);
+  transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+}
+.VPHero .actions .VPButton.alt:hover {
+  transform: translateY(-1px);
+  border-color: var(--vp-c-brand-1);
+  background: var(--vp-c-bg-soft);
+}
+
+/* Logo a touch larger and with a soft glow */
+.VPHero .VPImage.image-src {
+  filter: drop-shadow(0 10px 30px var(--al-glow));
+  transition: transform 200ms ease;
+}
+.VPHero .VPImage.image-src:hover {
+  transform: scale(1.04) rotate(-2deg);
+}
+
+/* ============================================================
+   FEATURES — animated cards with gradient hover border
+   ============================================================ */
+
+.VPFeatures {
+  position: relative;
+  z-index: 1;
+}
+
+.VPFeatures .VPFeature {
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 14px;
+  padding: 1.5rem 1.5rem 1.75rem !important;
+  transition:
+    transform 200ms ease,
+    border-color 200ms ease,
+    box-shadow 200ms ease,
+    background 200ms ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.VPFeatures .VPFeature::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  padding: 1px;
+  background: linear-gradient(135deg, var(--al-accent-from), var(--al-accent-via), var(--al-accent-to));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 240ms ease;
+  pointer-events: none;
+}
+.VPFeatures .VPFeature:hover::before {
+  opacity: 1;
+}
+
+.VPFeatures .VPFeature:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 38px -16px var(--al-glow);
+}
+
+.VPFeatures .VPFeature .icon {
+  background: var(--vp-c-brand-soft) !important;
+  color: var(--vp-c-brand-1);
+  border-radius: 10px;
+  width: 48px !important;
+  height: 48px !important;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  font-size: 0 !important;  /* hide emoji fallbacks; SVG renders via img */
+}
+
+.VPFeatures .VPFeature .icon img {
+  width: 28px;
+  height: 28px;
+}
+
+.VPFeatures .VPFeature .title {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  font-size: 1.1rem;
+  color: var(--vp-c-text-1);
+}
+
+.VPFeatures .VPFeature .details {
+  color: var(--vp-c-text-2);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* ============================================================
+   Code blocks — shadcn-style: flat, calm, clean
+   No gradients. No shadow on default. No hover lift.
+   Tiny language pill top-right + icon-only copy button.
+   ============================================================ */
+
+:root {
+  --vp-font-family-mono:
+    ui-monospace, "SF Mono", "JetBrains Mono", "Cascadia Code",
+    "Geist Mono", "IBM Plex Mono", "Fira Code", Menlo, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+
+  --al-code-bg: #f7f7f8;
+  --al-code-border: rgba(0, 0, 0, 0.08);
+}
+
+.dark {
+  --al-code-bg: #161618;
+  --al-code-border: rgba(255, 255, 255, 0.08);
+}
+
+/* Container: flat surface, no gradient, no shadow */
+div[class*="language-"] {
+  position: relative;
+  margin: 1.25rem 0;
+  border-radius: 12px;
+  border: 1px solid var(--al-code-border);
+  background: var(--al-code-bg);
+  overflow: hidden;
+}
+
+/* Pre + code: compact, mono, transparent inner background */
+div[class*="language-"] pre {
+  padding: 0.95rem 1.15rem !important;
+  margin: 0 !important;
+  background: transparent !important;
+  font-family: var(--vp-font-family-mono);
+  font-size: 13px;
+  line-height: 1.65;
+  font-variant-ligatures: none;
+}
+
+div[class*="language-"] code {
+  font-family: var(--vp-font-family-mono);
+  font-size: inherit;
+  background: transparent !important;
+  padding: 0 !important;
+  letter-spacing: -0.003em;
+}
+
+/* Language badge — small corner pill, shadcn-style. NOT a header strip
+   (header strip approach overlapped the first lines of code). */
+div[class*="language-"] .lang {
+  position: absolute !important;
+  top: 0.55rem !important;
+  right: 0.7rem !important;
+  z-index: 2;
+  display: inline-block;
+  width: auto;
+  padding: 0.08rem 0.45rem !important;
+  background: var(--vp-c-bg) !important;
+  border: 1px solid var(--vp-c-divider) !important;
+  border-radius: 6px !important;
+  font-family: var(--vp-font-family-mono);
+  font-size: 9.5px !important;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--vp-c-text-3) !important;
+  pointer-events: none;
+}
+
+/* Pre needs a little extra right-padding so the badge + copy button don't
+   sit over the first line of code on short snippets. */
+div[class*="language-"] pre {
+  padding-right: 4.5rem !important;
+}
+
+/* Copy button — sits next to the language badge, icon-only.
+   IMPORTANT: only override background-COLOR, never the `background` shorthand
+   — VitePress sets `background-image: var(--vp-icon-copy)`, and the shorthand
+   wipes the icon. */
+div[class*="language-"] button.copy {
+  top: 0.4rem !important;
+  right: 2.9rem !important;
+  width: 26px !important;
+  height: 26px !important;
+  border-radius: 6px !important;
+  background-color: transparent !important;
+  background-size: 14px !important;
+  border: 1px solid transparent !important;
+  opacity: 0;
+  transition:
+    opacity 140ms ease,
+    border-color 140ms ease,
+    background-color 140ms ease;
+  z-index: 3;
+}
+
+div[class*="language-"]:hover button.copy,
+div[class*="language-"] button.copy:focus-visible {
+  opacity: 0.9;
+  border-color: var(--vp-c-divider) !important;
+}
+
+div[class*="language-"] button.copy:hover {
+  opacity: 1 !important;
+  background-color: var(--vp-c-bg-soft) !important;
+}
+
+div[class*="language-"] button.copy.copied {
+  opacity: 1;
+  border-color: rgba(16, 185, 129, 0.5) !important;
+  background-color: rgba(16, 185, 129, 0.08) !important;
+}
+
+/* Scrollbar inside code: thin, themed */
+div[class*="language-"] pre::-webkit-scrollbar {
+  height: 8px;
+}
+div[class*="language-"] pre::-webkit-scrollbar-thumb {
+  background: var(--vp-c-divider);
+  border-radius: 999px;
+}
+div[class*="language-"] pre::-webkit-scrollbar-thumb:hover {
+  background: var(--vp-c-text-3);
+}
+
+/* Selection inside code — neutral, never brand-shouty */
+div[class*="language-"] ::selection {
+  background: rgba(0, 0, 0, 0.1);
+}
+.dark div[class*="language-"] ::selection {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* Code-group: outer card, tabs as underlined buttons inside */
+.vp-code-group {
+  border-radius: 12px;
+  border: 1px solid var(--al-code-border);
+  background: var(--al-code-bg);
+  margin: 1.25rem 0;
+  overflow: hidden;
+}
+
+.vp-code-group .tabs {
+  border: none !important;
+  border-bottom: 1px solid var(--al-code-border) !important;
+  background: transparent !important;
+  padding: 0.3rem 0.5rem 0 !important;
+  display: flex;
+  gap: 0 !important;
+  margin: 0 !important;
+  position: relative;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.vp-code-group .tabs::-webkit-scrollbar { display: none; }
+
+.vp-code-group .tabs label {
+  padding: 0.5rem 0.9rem !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  font-family: var(--vp-font-family-mono);
+  font-weight: 500 !important;
+  font-size: 12px !important;
+  letter-spacing: 0 !important;
+  color: var(--vp-c-text-3) !important;
+  border-bottom: 2px solid transparent !important;
+  margin-bottom: -1px !important;
+  transition: color 140ms ease, border-color 140ms ease !important;
+  cursor: pointer;
+}
+
+.vp-code-group .tabs label:hover {
+  color: var(--vp-c-text-2) !important;
+}
+
+.vp-code-group .tabs input:checked + label {
+  color: var(--vp-c-text-1) !important;
+  border-bottom-color: var(--vp-c-text-1) !important;
+  background: transparent !important;
+}
+
+/* Code blocks inside groups sit flush, no own border */
+.vp-code-group .blocks > div[class*="language-"] {
+  margin: 0 !important;
+  border: none !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+}
+
+/* Hide the per-block lang pill inside groups — the tab already says it */
+.vp-code-group .blocks > div[class*="language-"] .lang {
+  display: none;
+}
+
+.vp-code-group .blocks > div[class*="language-"] button.copy {
+  top: 0.5rem !important;
+  right: 0.6rem !important;
+}
+
+/* ============================================================
+   Tables — modern, calm, hairline rows
+   ============================================================ */
+
+.vp-doc table {
+  display: table;
+  width: 100%;
+  margin: 1.5rem 0;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 12px;
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+  font-size: 0.92rem;
+  background: var(--vp-c-bg);
+}
+
+.vp-doc thead {
+  background: var(--vp-c-bg-soft);
+}
+
+.vp-doc th {
+  padding: 0.7rem 1rem;
+  font-family: var(--vp-font-family-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--vp-c-text-3);
+  text-align: left;
+  border: none;
+  border-bottom: 1px solid var(--vp-c-divider);
+  white-space: nowrap;
+}
+
+.vp-doc td {
+  padding: 0.85rem 1rem;
+  border: none;
+  border-bottom: 1px solid var(--vp-c-divider);
+  color: var(--vp-c-text-2);
+  line-height: 1.55;
+  vertical-align: top;
+}
+
+.vp-doc tr:last-child td {
+  border-bottom: none;
+}
+
+.vp-doc tbody tr {
+  transition: background-color 120ms ease;
+}
+
+.vp-doc tbody tr:hover {
+  background: var(--vp-c-bg-soft);
+}
+
+/* Inline code inside table cells reads as a quiet pill */
+.vp-doc td > code,
+.vp-doc th > code {
+  font-family: var(--vp-font-family-mono);
+  font-size: 0.85em;
+  font-weight: 500;
+  padding: 0.1em 0.4em;
+  border-radius: 5px;
+  background: var(--vp-c-bg-soft);
+  color: var(--vp-c-text-1);
+  border: 1px solid var(--vp-c-divider);
+  letter-spacing: -0.003em;
+  white-space: nowrap;
+}
+
+/* Horizontal scroll on small screens */
+@media (max-width: 640px) {
+  .vp-doc table {
+    display: block;
+    overflow-x: auto;
+  }
+}
+
+/* ============================================================
+   Inline code — distinct but quiet
+   ============================================================ */
+
+:not(pre) > code {
+  font-family: var(--vp-font-family-mono);
+  font-size: 0.85em;
+  font-weight: 500;
+  padding: 0.12em 0.4em;
+  border-radius: 5px;
+  background: var(--vp-c-bg-soft);
+  color: var(--vp-c-text-1);
+  border: 1px solid var(--vp-c-divider);
+  letter-spacing: -0.003em;
+}
+
+a > code {
+  color: var(--vp-c-brand-1);
+  border-color: transparent;
+  background: var(--vp-c-brand-soft);
+  transition: background 140ms ease;
+}
+a:hover > code {
+  background: var(--vp-c-brand-soft);
+  filter: brightness(1.05);
+}
+
+/* ============================================================
+   Inline emphasis used on the home page below the hero
+   ============================================================ */
+
+.al-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  background: var(--vp-c-brand-soft);
+  color: var(--vp-c-brand-1);
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.01em;
+}
+
+.al-divider {
+  margin: 4rem auto 3rem !important;
+  max-width: 4rem;
+  border: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--vp-c-divider), transparent);
+}
+
+.al-models {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0 2.5rem;
+}
+.al-model {
+  border: 1px solid var(--vp-c-divider);
+  background: var(--vp-c-bg-soft);
+  border-radius: 12px;
+  padding: 1rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  transition: transform 200ms ease, border-color 200ms ease;
+}
+.al-model:hover {
+  transform: translateY(-2px);
+  border-color: var(--vp-c-brand-1);
+}
+.al-model-kicker {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--vp-c-text-3);
+  font-weight: 700;
+}
+.al-model-title {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--vp-c-text-1);
+}
+.al-model-desc {
+  color: var(--vp-c-text-2);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+.al-model-support {
+  margin-top: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: inline-flex;
+  width: fit-content;
+  padding: 0.15rem 0.5rem;
+  border-radius: 6px;
+}
+.al-model-support.full {
+  background: rgba(16, 185, 129, 0.14);
+  color: #047857;
+}
+.dark .al-model-support.full {
+  color: #34d399;
+}
+.al-model-support.partial {
+  background: rgba(245, 158, 11, 0.16);
+  color: #b45309;
+}
+.dark .al-model-support.partial {
+  color: #fbbf24;
+}

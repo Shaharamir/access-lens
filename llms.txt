@@ -1,0 +1,25 @@
+# Access Lens
+
+> Access observability SDK for SaaS apps. Record every gated UI decision (sidebar items, tabs, buttons, routes, fields) with the **combined reason** it produced — permission + feature flag + plan + entitlement + tenant config + custom condition — and inspect it live through a debug overlay or programmatic snapshot. Headless TypeScript core with a React adapter and a DOM overlay; "framework-agnostic" with two real adapters today.
+
+The single SDK shape every consumer should reach for is `defineAccessLens(config)`. It returns a typed lens that exposes every reason-builder bound to the keys you declared — there are no free strings, every permission / flag / plan / entitlement key autocompletes, every flag kind exposes a kind-specific method (`.on()`, `.is()`, `.inRollout()`, `.activeFrom()`, `.notEngaged()`), and passing an unknown key is a compile error.
+
+## Packages
+
+- [`@access-lens/core`](packages/core/README.md): Headless TypeScript. `defineAccessLens`, `evaluateAccess`, `AccessLensClient`. Zero runtime deps. Dual ESM/CJS.
+- [`@access-lens/react`](packages/react/README.md): React adapter. `AccessLensProvider`, `AccessGate`, `useAccessGate`, `useAccessLensSnapshot`, `createReactBindings`. Peer deps on React 18 or 19.
+- [`@access-lens/dom`](packages/dom/README.md): Framework-agnostic floating debug overlay (`createAccessLensOverlay`). No React.
+
+## Docs
+
+- [README](README.md): What it is, install, 5-line snippet, link to live demo.
+- [Recipes](docs/recipes.md): Common patterns — RBAC, flag rollout, tenant config, plan tiers, route variants, server-side gates.
+- [API reference](docs/api.md): Every public export with `@example` blocks.
+
+## Examples
+
+- [apps/demo-react](apps/demo-react/): End-to-end demo with sidebar, tabs, buttons, gated route variants, 100+ catalog surfaces, flag inspector, access matrix, floating widget.
+
+## Optional
+
+- [Comparison](docs/comparison.md): vs OpenFeature / LaunchDarkly / GrowthBook (those evaluate flags), vs CASL / Casbin / accesscontrol (those decide allowed/denied) — Access Lens makes the *combined* decision observable.
