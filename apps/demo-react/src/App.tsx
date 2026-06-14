@@ -51,7 +51,10 @@ export function App() {
           ) : page === "matrix" ? (
             <AccessMatrix ctx={ctx} />
           ) : (
-            <TabsPanel ctx={ctx} page={page} />
+            <div className="flex flex-col gap-8 min-w-0">
+              <TabsPanel ctx={ctx} page={page} />
+              <AccessMatrix ctx={ctx} />
+            </div>
           )}
         </main>
         <footer className="text-center text-xs text-muted-foreground py-6 border-t border-border">
