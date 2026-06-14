@@ -1,0 +1,66 @@
+# Access Lens
+
+> Framework-agnostic access observability SDK for modern SaaS apps. Records every gated UI decision (sidebar, tab, button, route, field, select option) with the combined reason — permission + feature flag + plan + entitlement + tenant config + custom condition. Headless core + React + DOM overlay adapters.
+
+Access Lens is not a flag SDK or RBAC library. It's an *observability layer* over whichever decision engine you use (CASL, Casbin, OPA, Permify, OpenFGA, LaunchDarkly, GrowthBook, etc.). Composes their outputs into one decision per UI surface, with a debug overlay that explains every hidden element.
+
+## Packages
+
+- `@access-lens/core` (10 kB gz, headless, zero deps) — typed lens, snapshot, evaluator
+- `@access-lens/react` (6 kB gz, React 18/19 peer) — `AccessLensProvider`, `AccessGate`, hooks
+- `@access-lens/dom` (11 kB gz) — framework-agnostic floating debug overlay
+
+## Docs
+
+- [What is Access Lens?](https://access-lens.dev/guide/what-is-it): Problem it solves, target users
+- [Install](https://access-lens.dev/guide/install): npm/pnpm/yarn/bun commands
+- [Quick start](https://access-lens.dev/guide/quick-start): Five-minute setup
+- [Concepts](https://access-lens.dev/guide/concepts): Nodes, reasons, snapshots, debug mode
+- [Access control models](https://access-lens.dev/guide/access-control-models): RBAC, ABAC, PBAC, ReBAC compatibility
+- [defineAccessLens](https://access-lens.dev/guide/define-access-lens): Typed lens config
+- [Permissions](https://access-lens.dev/guide/permissions): `al.permission(key, granted)`
+- [Plans & entitlements](https://access-lens.dev/guide/plans-entitlements): Ordered plans, boolean entitlements
+- [Feature flags](https://access-lens.dev/guide/feature-flags): boolean/variant/percent/date/killswitch
+- [Surfaces](https://access-lens.dev/guide/surfaces): Typed surface IDs
+- [Backend integration](https://access-lens.dev/guide/backend-integration): Four wiring patterns
+- [AccessLensProvider](https://access-lens.dev/guide/provider): React provider + debug mode
+- [AccessGate](https://access-lens.dev/guide/access-gate): The gate component
+- [Hooks](https://access-lens.dev/guide/hooks): `useAccessGate`, `useAccessLensSnapshot`
+- [Debug overlay](https://access-lens.dev/guide/debug-overlay): Floating panel + hover highlights
+
+## API reference
+
+- [defineAccessLens](https://access-lens.dev/api/define-access-lens)
+- [evaluateAccess](https://access-lens.dev/api/evaluate-access)
+- [AccessLensClient](https://access-lens.dev/api/client)
+- [Types](https://access-lens.dev/api/types)
+- [createReactBindings](https://access-lens.dev/api/create-react-bindings)
+- [AccessGate (React)](https://access-lens.dev/api/access-gate)
+- [Hooks (React)](https://access-lens.dev/api/hooks)
+- [createAccessLensOverlay (DOM)](https://access-lens.dev/api/create-access-lens-overlay)
+
+## Recipes
+
+- [RBAC with permissions](https://access-lens.dev/recipes/rbac)
+- [Feature flag rollout](https://access-lens.dev/recipes/rollout)
+- [Plan-tier gating](https://access-lens.dev/recipes/plans)
+- [Tenant config](https://access-lens.dev/recipes/tenant-config)
+- [Variant routing](https://access-lens.dev/recipes/variant-routing)
+- [Gated select options](https://access-lens.dev/recipes/gated-select)
+- [/me/access endpoint](https://access-lens.dev/recipes/me-access-endpoint)
+- [NestJS](https://access-lens.dev/recipes/nestjs)
+- [Express + CASL](https://access-lens.dev/recipes/express-casl)
+- [Next.js middleware](https://access-lens.dev/recipes/nextjs-middleware)
+- [LaunchDarkly integration](https://access-lens.dev/recipes/launchdarkly)
+
+## Full LLM context
+
+- [llms-full.txt](https://access-lens.dev/llms-full.txt): Complete typed-API reference + examples + common mistakes — single paste for Cursor / Claude / Copilot / Continue / Codex
+
+## Optional
+
+- [GitHub repo](https://github.com/Shaharamir/access-lens)
+- [npm @access-lens/core](https://www.npmjs.com/package/@access-lens/core)
+- [npm @access-lens/react](https://www.npmjs.com/package/@access-lens/react)
+- [npm @access-lens/dom](https://www.npmjs.com/package/@access-lens/dom)
+- [Interactive demo](https://access-lens.dev/demo)
