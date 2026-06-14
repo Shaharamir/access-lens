@@ -29,7 +29,7 @@ Authorization observability for SaaS apps. Record every gated UI decision with t
 
 <br />
 
-<img src="assets/hero.svg" alt="Access Lens debug mode — every gated UI element outlined by reason, hover for the full reason graph + tenants × roles matrix" />
+<img src="assets/demo.svg" alt="Access Lens debug mode loop — debug toggle on, outlines bloom across sidebar items, hover Payouts to reveal the full reason graph with permission + entitlement + flag + plan breakdown" />
 
 </div>
 
