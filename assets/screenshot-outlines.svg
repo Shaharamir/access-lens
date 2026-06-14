@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 580" width="540" height="580" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" role="img" aria-label="Sidebar items outlined by the color of their primary gate type.">
+  <defs>
+    <filter id="card2" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#0f172a" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <rect width="540" height="580" fill="#f8fafc"/>
+
+  <!-- Card -->
+  <g transform="translate(40,40)">
+    <rect width="460" height="500" rx="14" fill="#ffffff" stroke="#e2e8f0" filter="url(#card2)"/>
+
+    <text x="22" y="32" font-size="11" font-weight="700" fill="#94a3b8" letter-spacing="1.5">DEBUG MODE</text>
+    <text x="22" y="54" font-size="17" font-weight="800" fill="#0f172a">Outlined by primary gate</text>
+
+    <!-- Items -->
+    <g transform="translate(22,74)" font-size="13">
+      <!-- sky permission - allowed solid -->
+      <g>
+        <rect width="416" height="40" rx="9" fill="#ffffff" stroke="#38bdf8" stroke-width="1.6"/>
+        <circle cx="16" cy="20" r="4" fill="#10b981"/>
+        <text x="32" y="24" fill="#0f172a">Dashboard</text>
+        <rect x="338" y="11" width="60" height="18" rx="999" fill="rgba(56,189,248,0.18)"/>
+        <text x="368" y="23" font-size="9" font-weight="800" fill="#0369a1" text-anchor="middle">PERMISSION</text>
+      </g>
+      <!-- emerald entitlement - allowed solid -->
+      <g transform="translate(0,52)">
+        <rect width="416" height="40" rx="9" fill="#ffffff" stroke="#10b981" stroke-width="1.6"/>
+        <circle cx="16" cy="20" r="4" fill="#10b981"/>
+        <text x="32" y="24" fill="#0f172a">Billing</text>
+        <rect x="338" y="11" width="60" height="18" rx="999" fill="rgba(16,185,129,0.20)"/>
+        <text x="368" y="23" font-size="9" font-weight="800" fill="#047857" text-anchor="middle">ENTITLEMENT</text>
+      </g>
+      <!-- indigo flag - allowed solid -->
+      <g transform="translate(0,104)">
+        <rect width="416" height="40" rx="9" fill="#ffffff" stroke="#818cf8" stroke-width="1.6"/>
+        <circle cx="16" cy="20" r="4" fill="#10b981"/>
+        <text x="32" y="24" fill="#0f172a">Checkout v2</text>
+        <rect x="338" y="11" width="60" height="18" rx="999" fill="rgba(129,140,248,0.22)"/>
+        <text x="368" y="23" font-size="9" font-weight="800" fill="#4338ca" text-anchor="middle">FLAG</text>
+      </g>
+      <!-- amber plan - denied dashed -->
+      <g transform="translate(0,156)">
+        <rect width="416" height="40" rx="9" fill="#ffffff" stroke="#fb923c" stroke-width="1.6" stroke-dasharray="5 4"/>
+        <circle cx="16" cy="20" r="4" fill="#ef4444"/>
+        <text x="32" y="24" fill="#94a3b8" text-decoration="line-through">Risk settings</text>
+        <rect x="338" y="11" width="60" height="18" rx="999" fill="rgba(251,191,36,0.22)"/>
+        <text x="368" y="23" font-size="9" font-weight="800" fill="#92400e" text-anchor="middle">PLAN</text>
+      </g>
+      <!-- pink tenant config - denied dashed -->
+      <g transform="translate(0,208)">
+        <rect width="416" height="40" rx="9" fill="#ffffff" stroke="#f472b6" stroke-width="1.6" stroke-dasharray="5 4"/>
+        <circle cx="16" cy="20" r="4" fill="#ef4444"/>
+        <text x="32" y="24" fill="#94a3b8" text-decoration="line-through">Beta features</text>
+        <rect x="338" y="11" width="60" height="18" rx="999" fill="rgba(244,114,182,0.22)"/>
+        <text x="368" y="23" font-size="9" font-weight="800" fill="#be185d" text-anchor="middle">TENANT</text>
+      </g>
+      <!-- slate condition - allowed solid -->
+      <g transform="translate(0,260)">
+        <rect width="416" height="40" rx="9" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6"/>
+        <circle cx="16" cy="20" r="4" fill="#10b981"/>
+        <text x="32" y="24" fill="#0f172a">Settings</text>
+        <rect x="338" y="11" width="60" height="18" rx="999" fill="rgba(148,163,184,0.22)"/>
+        <text x="368" y="23" font-size="9" font-weight="800" fill="#475569" text-anchor="middle">CONDITION</text>
+      </g>
+      <!-- fuchsia custom - denied dashed -->
+      <g transform="translate(0,312)">
+        <rect width="416" height="40" rx="9" fill="#ffffff" stroke="#c084fc" stroke-width="1.6" stroke-dasharray="5 4"/>
+        <circle cx="16" cy="20" r="4" fill="#ef4444"/>
+        <text x="32" y="24" fill="#94a3b8" text-decoration="line-through">Admin tools</text>
+        <rect x="338" y="11" width="60" height="18" rx="999" fill="rgba(192,132,252,0.22)"/>
+        <text x="368" y="23" font-size="9" font-weight="800" fill="#7e22ce" text-anchor="middle">CUSTOM</text>
+      </g>
+    </g>
+
+    <!-- Legend -->
+    <g transform="translate(22,420)" font-size="10">
+      <text x="0" y="0" font-weight="700" fill="#94a3b8" letter-spacing="1">LEGEND</text>
+      <g transform="translate(0,14)" fill="#475569">
+        <rect width="80" height="18" rx="4" fill="none" stroke="#475569" stroke-width="1.4"/>
+        <text x="40" y="13" text-anchor="middle">SOLID · gated</text>
+        <g transform="translate(96,0)">
+          <rect width="92" height="18" rx="4" fill="none" stroke="#475569" stroke-width="1.4" stroke-dasharray="5 4"/>
+          <text x="46" y="13" text-anchor="middle">DASHED · denied</text>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

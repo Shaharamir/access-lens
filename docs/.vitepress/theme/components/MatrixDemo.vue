@@ -1,33 +1,37 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
 
-type Plan = "free" | "growth" | "enterprise";
-type RoleId = "owner" | "manager" | "viewer";
-type TenantId = "acme" | "globex" | "smallco";
-type SurfaceId = "billing" | "reports_export" | "payouts" | "risk";
+type Plan = "free" | "basic" | "growth" | "enterprise";
+type Cohort = "control" | "beta" | "ga";
+type RoleId = "admin" | "manager" | "viewer" | "support";
+type TenantId = "acme" | "globex" | "smallshop" | "nile" | "indie";
+type SurfaceId = "billing" | "reports_export" | "payouts" | "risk_settings" | "audit_log";
 
 interface Reason {
-  kind: "permission" | "entitlement" | "plan" | "feature_flag";
+  kind: "permission" | "entitlement" | "plan" | "feature_flag" | "tenant_config";
   key: string;
   passed: boolean;
   message: string;
 }
 
-const PLAN_ORDER: Plan[] = ["free", "growth", "enterprise"];
+const PLAN_ORDER: Plan[] = ["free", "basic", "growth", "enterprise"];
 function planAtLeast(actual: Plan, min: Plan): boolean {
   return PLAN_ORDER.indexOf(actual) >= PLAN_ORDER.indexOf(min);
 }
 
-const tenants = {
-  acme:    { name: "Acme",    plan: "enterprise" as Plan, entitlements: { billing: true,  payouts: true  } },
-  globex:  { name: "Globex",  plan: "growth"     as Plan, entitlements: { billing: true,  payouts: false } },
-  smallco: { name: "SmallCo", plan: "free"       as Plan, entitlements: { billing: false, payouts: false } },
+const tenants: Record<TenantId, { name: string; plan: Plan; cohort: Cohort; bucket: number; entitlements: { billing: boolean; payouts: boolean; audit: boolean } }> = {
+  acme:      { name: "Acme Marketplace", plan: "enterprise", cohort: "beta",    bucket: 14, entitlements: { billing: true,  payouts: true,  audit: true  } },
+  globex:    { name: "Globex Retail",    plan: "growth",     cohort: "ga",      bucket: 47, entitlements: { billing: true,  payouts: false, audit: false } },
+  smallshop: { name: "Small Shop",       plan: "basic",      cohort: "control", bucket: 83, entitlements: { billing: true,  payouts: false, audit: false } },
+  nile:      { name: "Nile APAC",        plan: "growth",     cohort: "beta",    bucket: 62, entitlements: { billing: true,  payouts: true,  audit: false } },
+  indie:     { name: "Indie Dev (Free)", plan: "free",       cohort: "control", bucket: 35, entitlements: { billing: false, payouts: false, audit: false } },
 };
 
-const roles = {
-  owner:   { name: "Owner",   perms: new Set(["billing.read", "billing.write", "payouts.manage", "reports.read", "reports.export", "risk.write"]) },
-  manager: { name: "Manager", perms: new Set(["billing.read", "billing.write", "payouts.manage", "reports.read"]) },
+const roles: Record<RoleId, { name: string; perms: Set<string> }> = {
+  admin:   { name: "Admin",   perms: new Set(["billing.read", "billing.write", "payouts.manage", "reports.read", "reports.export", "risk.write", "audit.read"]) },
+  manager: { name: "Manager", perms: new Set(["billing.read", "billing.write", "payouts.manage", "reports.read", "reports.export"]) },
   viewer:  { name: "Viewer",  perms: new Set(["billing.read", "reports.read"]) },
+  support: { name: "Support", perms: new Set(["billing.read"]) },
 };
 
 const surfaces: { id: SurfaceId; label: string; type: string; build: (t: TenantId, r: RoleId) => Reason[] }[] = [
@@ -69,7 +73,7 @@ const surfaces: { id: SurfaceId; label: string; type: string; build: (t: TenantI
     },
   },
   {
-    id: "risk",
+    id: "risk_settings",
     label: "Risk settings",
     type: "section",
     build: (tId, rId) => {
@@ -80,9 +84,24 @@ const surfaces: { id: SurfaceId; label: string; type: string; build: (t: TenantI
       ];
     },
   },
+  {
+    id: "audit_log",
+    label: "Audit log",
+    type: "route",
+    build: (tId, rId) => {
+      const t = tenants[tId], r = roles[rId];
+      return [
+        { kind: "tenant_config", key: "audit_enabled", passed: t.entitlements.audit, message: `${t.name} audit feature ${t.entitlements.audit ? "on" : "off"}` },
+        { kind: "permission",    key: "audit.read",    passed: r.perms.has("audit.read"),    message: `${r.name} ${r.perms.has("audit.read") ? "has" : "lacks"} audit.read` },
+      ];
+    },
+  },
 ];
 
+type StatusFilter = "all" | "open" | "closed";
+
 const active = ref<SurfaceId>("billing");
+const status = ref<StatusFilter>("all");
 const hover = ref<{ t: TenantId; r: RoleId } | null>(null);
 
 const currentSurface = computed(() => surfaces.find(s => s.id === active.value)!);
@@ -107,8 +126,14 @@ const coverage = computed(() => {
       if (cells.value[tId][rId].allowed) open++;
     }
   }
-  return { open, total };
+  return { open, total, closed: total - open };
 });
+
+function shouldShow(allowed: boolean): boolean {
+  if (status.value === "all") return true;
+  if (status.value === "open") return allowed;
+  return !allowed;
+}
 
 function reasonChipClass(kind: Reason["kind"]) {
   return `chip-${kind}`;
@@ -130,8 +155,14 @@ function reasonChipClass(kind: Reason["kind"]) {
           <span class="matrix-tab-type">{{ s.type }}</span>
         </button>
       </div>
+    </div>
+
+    <div class="matrix-filters">
+      <button :class="['filter-pill', { active: status === 'all' }]" @click="status = 'all'">all</button>
+      <button :class="['filter-pill', { active: status === 'open' }]" @click="status = 'open'">open · {{ coverage.open }}</button>
+      <button :class="['filter-pill', { active: status === 'closed' }]" @click="status = 'closed'">closed · {{ coverage.closed }}</button>
       <span class="matrix-coverage">
-        open <strong>{{ coverage.open }}</strong> / {{ coverage.total }}
+        open · <strong>{{ coverage.open }}</strong> / {{ coverage.total }}
       </span>
     </div>
 
@@ -142,8 +173,8 @@ function reasonChipClass(kind: Reason["kind"]) {
             <th class="corner">tenant ↓ · role →</th>
             <th v-for="(r, rId) in roles" :key="rId">
               <div class="cell-role">
-                <span>{{ r.name }}</span>
-                <span class="cell-role-perms">{{ r.perms.size }} perms</span>
+                <span class="cell-role-name">{{ r.name }}</span>
+                <span class="cell-role-id">{{ String(rId).toUpperCase() }}</span>
               </div>
             </th>
           </tr>
@@ -152,14 +183,18 @@ function reasonChipClass(kind: Reason["kind"]) {
           <tr v-for="(t, tId) in tenants" :key="tId">
             <th scope="row" class="cell-tenant">
               <span class="cell-tenant-name">{{ t.name }}</span>
-              <span class="cell-tenant-plan">{{ t.plan }}</span>
+              <span class="cell-tenant-meta">{{ t.plan }} · {{ t.cohort }} · b{{ t.bucket }}</span>
             </th>
             <td
               v-for="(r, rId) in roles"
               :key="rId"
               @mouseenter="hover = { t: tId as any, r: rId as any }"
               @mouseleave="hover = null"
-              :class="['cell', cells[tId as any][rId as any].allowed ? 'cell-open' : 'cell-closed']"
+              :class="[
+                'cell',
+                cells[tId as any][rId as any].allowed ? 'cell-open' : 'cell-closed',
+                !shouldShow(cells[tId as any][rId as any].allowed) && 'cell-dim',
+              ]"
             >
               <span class="cell-mark">{{ cells[tId as any][rId as any].allowed ? "✓" : "×" }}</span>
             </td>
@@ -199,7 +234,7 @@ function reasonChipClass(kind: Reason["kind"]) {
     </div>
 
     <div class="matrix-hint">
-      <span>Click any surface · hover any cell · every cell evaluates real reasons against tenant + role.</span>
+      <span>Pick surface · filter open/closed · hover any cell for the live reason breakdown.</span>
     </div>
   </div>
 </template>
@@ -230,16 +265,6 @@ function reasonChipClass(kind: Reason["kind"]) {
   color: var(--vp-c-text-3);
   font-weight: 700;
 }
-.matrix-coverage {
-  margin-left: auto;
-  font-size: 11px;
-  color: var(--vp-c-text-2);
-  font-family: var(--vp-font-family-mono, monospace);
-}
-.matrix-coverage strong {
-  color: var(--vp-c-brand-1);
-}
-
 .matrix-tabs {
   display: inline-flex;
   flex-wrap: wrap;
@@ -280,6 +305,41 @@ function reasonChipClass(kind: Reason["kind"]) {
   font-family: var(--vp-font-family-mono, monospace);
 }
 
+.matrix-filters {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.filter-pill {
+  border: 1px solid var(--vp-c-divider);
+  background: var(--vp-c-bg-soft);
+  color: var(--vp-c-text-2);
+  font-family: inherit;
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 160ms ease, color 160ms ease, border-color 160ms ease;
+}
+.filter-pill:hover { color: var(--vp-c-text-1); }
+.filter-pill.active {
+  background: var(--vp-c-text-1);
+  color: var(--vp-c-bg);
+  border-color: var(--vp-c-text-1);
+}
+.matrix-coverage {
+  margin-left: auto;
+  font-size: 11px;
+  color: var(--vp-c-text-2);
+  font-family: var(--vp-font-family-mono, monospace);
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-divider);
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+.matrix-coverage strong { color: var(--vp-c-brand-1); }
+
 .matrix-grid {
   position: relative;
   border: 1px solid var(--vp-c-divider);
@@ -307,7 +367,7 @@ function reasonChipClass(kind: Reason["kind"]) {
   color: var(--vp-c-text-3);
   font-weight: 600;
   background: var(--vp-c-bg);
-  width: 33%;
+  width: 26%;
 }
 
 .cell-role {
@@ -316,15 +376,14 @@ function reasonChipClass(kind: Reason["kind"]) {
   align-items: center;
   gap: 2px;
 }
-.cell-role span:first-child { font-weight: 700; color: var(--vp-c-text-1); font-size: 12.5px; }
-.cell-role-perms {
-  font-size: 9.5px;
+.cell-role-name { font-weight: 700; color: var(--vp-c-text-1); font-size: 12.5px; }
+.cell-role-id {
+  font-size: 9px;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
   color: var(--vp-c-text-3);
   font-family: var(--vp-font-family-mono, monospace);
 }
-
 .matrix-grid thead th { text-align: center; background: var(--vp-c-bg); }
 
 .cell-tenant {
@@ -333,21 +392,22 @@ function reasonChipClass(kind: Reason["kind"]) {
   gap: 2px;
   background: var(--vp-c-bg);
 }
-.cell-tenant-name { font-weight: 700; color: var(--vp-c-text-1); }
-.cell-tenant-plan {
+.cell-tenant-name { font-weight: 700; color: var(--vp-c-text-1); font-family: var(--vp-font-family-mono, monospace); }
+.cell-tenant-meta {
   font-family: var(--vp-font-family-mono, monospace);
   font-size: 9.5px;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
   color: var(--vp-c-text-3);
 }
 
 .cell {
   text-align: center;
   cursor: default;
-  transition: background 160ms ease;
+  transition: background 160ms ease, opacity 160ms ease;
 }
 .cell:hover { background: var(--vp-c-bg); }
+.cell-dim { opacity: 0.18; pointer-events: none; }
 
 .cell-mark {
   display: inline-flex;
@@ -371,7 +431,7 @@ function reasonChipClass(kind: Reason["kind"]) {
   position: absolute;
   top: 10px;
   right: 10px;
-  width: 320px;
+  width: 340px;
   z-index: 6;
   background: var(--vp-c-bg);
   border: 1px solid var(--vp-c-divider);
@@ -428,11 +488,7 @@ function reasonChipClass(kind: Reason["kind"]) {
 .reason-pass { background: rgba(16, 185, 129, 0.10); color: var(--vp-c-text-1); }
 .reason-fail { background: rgba(239, 68, 68, 0.12); color: #b91c1c; }
 .dark .reason-fail { color: #fca5a5; }
-.reason-icon {
-  font-family: var(--vp-font-family-mono, monospace);
-  font-weight: 800;
-  text-align: center;
-}
+.reason-icon { font-family: var(--vp-font-family-mono, monospace); font-weight: 800; text-align: center; }
 .reason-body { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
 .reason-meta { display: inline-flex; align-items: center; gap: 6px; flex-wrap: wrap; }
 .reason-chip {
@@ -444,14 +500,16 @@ function reasonChipClass(kind: Reason["kind"]) {
   font-weight: 700;
   font-family: var(--vp-font-family-mono, monospace);
 }
-.chip-permission   { background: rgba(56, 189, 248, 0.18); color: #0369a1; }
-.chip-feature_flag { background: rgba(129, 140, 248, 0.22); color: #4338ca; }
-.chip-plan         { background: rgba(251, 191, 36, 0.22); color: #92400e; }
-.chip-entitlement  { background: rgba(16, 185, 129, 0.20); color: #047857; }
-.dark .chip-permission   { color: #7dd3fc; }
-.dark .chip-feature_flag { color: #a5b4fc; }
-.dark .chip-plan         { color: #fcd34d; }
-.dark .chip-entitlement  { color: #6ee7b7; }
+.chip-permission     { background: rgba(56, 189, 248, 0.18); color: #0369a1; }
+.chip-feature_flag   { background: rgba(129, 140, 248, 0.22); color: #4338ca; }
+.chip-plan           { background: rgba(251, 191, 36, 0.22); color: #92400e; }
+.chip-entitlement    { background: rgba(16, 185, 129, 0.20); color: #047857; }
+.chip-tenant_config  { background: rgba(244, 114, 182, 0.22); color: #be185d; }
+.dark .chip-permission     { color: #7dd3fc; }
+.dark .chip-feature_flag   { color: #a5b4fc; }
+.dark .chip-plan           { color: #fcd34d; }
+.dark .chip-entitlement    { color: #6ee7b7; }
+.dark .chip-tenant_config  { color: #fbcfe8; }
 .reason-key {
   font-family: var(--vp-font-family-mono, monospace);
   font-size: 10.5px;
@@ -470,10 +528,7 @@ function reasonChipClass(kind: Reason["kind"]) {
 .fade-enter-from, .fade-leave-to { opacity: 0; transform: translateY(-4px); }
 
 @media (max-width: 720px) {
-  .matrix-popover {
-    position: static;
-    width: auto;
-    margin: 8px;
-  }
+  .matrix-popover { position: static; width: auto; margin: 8px; }
+  .corner { width: 30%; }
 }
 </style>

@@ -1,0 +1,158 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 580" width="540" height="580" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" role="img" aria-label="Access matrix view showing every surface across every tenant and user combo.">
+  <defs>
+    <filter id="card3" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#0f172a" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <rect width="540" height="580" fill="#f8fafc"/>
+
+  <g transform="translate(30,30)">
+    <rect width="480" height="520" rx="14" fill="#ffffff" stroke="#e2e8f0" filter="url(#card3)"/>
+
+    <!-- Header -->
+    <g>
+      <text x="22" y="32" font-size="11" font-weight="700" fill="#94a3b8" letter-spacing="1.5">ACCESS MATRIX</text>
+      <text x="22" y="56" font-size="17" font-weight="800" fill="#0f172a">Every surface · every tenant × user</text>
+      <text x="22" y="76" font-size="11" fill="#64748b">Filter by type, reason kind, coverage. Expand any row for the full grid.</text>
+
+      <!-- Filter pills -->
+      <g transform="translate(22,90)" font-size="10">
+        <g>
+          <rect width="46" height="20" rx="6" fill="#0f172a"/>
+          <text x="23" y="14" fill="#ffffff" font-weight="700" text-anchor="middle">All</text>
+        </g>
+        <g transform="translate(54,0)" fill="#475569">
+          <rect width="40" height="20" rx="6" fill="#ffffff" stroke="#e2e8f0"/>
+          <text x="20" y="14" text-anchor="middle">nav</text>
+        </g>
+        <g transform="translate(100,0)" fill="#475569">
+          <rect width="40" height="20" rx="6" fill="#ffffff" stroke="#e2e8f0"/>
+          <text x="20" y="14" text-anchor="middle">tab</text>
+        </g>
+        <g transform="translate(146,0)" fill="#475569">
+          <rect width="38" height="20" rx="6" fill="#ffffff" stroke="#e2e8f0"/>
+          <text x="19" y="14" text-anchor="middle">btn</text>
+        </g>
+        <g transform="translate(190,0)" fill="#475569">
+          <rect width="38" height="20" rx="6" fill="#ffffff" stroke="#e2e8f0"/>
+          <text x="19" y="14" text-anchor="middle">sec</text>
+        </g>
+
+        <!-- Right-side coverage badge -->
+        <g transform="translate(360,0)">
+          <rect width="96" height="20" rx="6" fill="rgba(56,189,248,0.14)"/>
+          <text x="48" y="14" font-family="ui-monospace, monospace" font-weight="700" fill="#0369a1" text-anchor="middle">68 / 92</text>
+        </g>
+      </g>
+    </g>
+
+    <!-- Row 1: collapsed -->
+    <g transform="translate(22,134)">
+      <rect width="436" height="48" rx="10" fill="rgba(16,185,129,0.06)" stroke="rgba(16,185,129,0.4)"/>
+      <rect x="14" y="14" width="34" height="20" rx="4" fill="#ffffff" stroke="#e2e8f0"/>
+      <text x="31" y="27" font-family="ui-monospace, monospace" font-size="9" font-weight="800" fill="#475569" text-anchor="middle">NAV</text>
+      <text x="60" y="22" font-size="13" font-weight="700" fill="#0f172a">Billing</text>
+      <text x="115" y="22" font-family="ui-monospace, monospace" font-size="9" fill="#94a3b8">sidebar.billing</text>
+      <text x="60" y="37" font-size="10" fill="#64748b">finance · </text>
+      <g transform="translate(118,29)" font-size="8">
+        <rect width="56" height="13" rx="3" fill="rgba(56,189,248,0.16)"/>
+        <text x="28" y="9" font-weight="800" fill="#0369a1" text-anchor="middle">PERMISSION</text>
+        <rect x="62" width="60" height="13" rx="3" fill="rgba(16,185,129,0.18)"/>
+        <text x="92" y="9" font-weight="800" fill="#047857" text-anchor="middle">ENTITLEMENT</text>
+      </g>
+      <g transform="translate(290,12)">
+        <rect width="68" height="22" rx="4" fill="rgba(16,185,129,0.10)"/>
+        <text x="34" y="15" font-family="ui-monospace, monospace" font-size="9" font-weight="800" fill="#047857" text-anchor="middle">open 6/9</text>
+      </g>
+      <g transform="translate(364,12)">
+        <rect width="60" height="22" rx="4" fill="rgba(16,185,129,0.16)"/>
+        <text x="30" y="15" font-size="9" font-weight="800" fill="#047857" text-anchor="middle">OPEN HERE</text>
+      </g>
+    </g>
+
+    <!-- Row 2: expanded -->
+    <g transform="translate(22,194)">
+      <rect width="436" height="280" rx="10" fill="#f8fafc" stroke="#e2e8f0"/>
+      <!-- top row of expanded -->
+      <g>
+        <rect x="0" y="0" width="436" height="46" rx="10" fill="#ffffff"/>
+        <rect x="14" y="14" width="32" height="18" rx="4" fill="#ffffff" stroke="#e2e8f0"/>
+        <text x="30" y="26" font-family="ui-monospace, monospace" font-size="9" font-weight="800" fill="#475569" text-anchor="middle">BTN</text>
+        <text x="56" y="21" font-size="12" font-weight="700" fill="#0f172a">Reports → Export</text>
+        <text x="56" y="34" font-size="9" font-family="ui-monospace, monospace" fill="#94a3b8">reports.export</text>
+        <g transform="translate(288,12)">
+          <rect width="68" height="22" rx="4" fill="rgba(251,191,36,0.16)"/>
+          <text x="34" y="15" font-family="ui-monospace, monospace" font-size="9" font-weight="800" fill="#92400e" text-anchor="middle">open 3/9</text>
+        </g>
+        <g transform="translate(362,12)">
+          <rect width="60" height="22" rx="4" fill="rgba(239,68,68,0.12)"/>
+          <text x="30" y="15" font-size="9" font-weight="800" fill="#b91c1c" text-anchor="middle">CLOSED HERE</text>
+        </g>
+      </g>
+
+      <!-- Grid -->
+      <g transform="translate(14,58)">
+        <rect width="408" height="208" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+
+        <!-- header -->
+        <g transform="translate(0,8)" font-size="9.5" font-weight="700">
+          <text x="14" y="14" font-family="ui-monospace, monospace" fill="#94a3b8">tenant ↓ · user →</text>
+          <g fill="#0f172a">
+            <text x="170" y="14" text-anchor="middle">Owen</text>
+            <text x="170" y="26" font-size="8" font-weight="500" fill="#94a3b8" text-anchor="middle">Owner</text>
+            <text x="252" y="14" text-anchor="middle">Mia</text>
+            <text x="252" y="26" font-size="8" font-weight="500" fill="#94a3b8" text-anchor="middle">Manager</text>
+            <text x="334" y="14" text-anchor="middle">Viv</text>
+            <text x="334" y="26" font-size="8" font-weight="500" fill="#94a3b8" text-anchor="middle">Viewer</text>
+          </g>
+        </g>
+
+        <line x1="0" y1="42" x2="408" y2="42" stroke="#e2e8f0"/>
+
+        <!-- Acme -->
+        <g transform="translate(0,52)">
+          <text x="14" y="14" font-size="10" font-weight="700" fill="#0f172a">Acme</text>
+          <text x="14" y="26" font-family="ui-monospace, monospace" font-size="8" fill="#94a3b8">ENTERPRISE · NA · b73</text>
+          <circle cx="170" cy="18" r="9" fill="#10b981"/>
+          <text x="170" y="22" font-size="9" font-weight="800" fill="#ffffff" text-anchor="middle">✓</text>
+          <circle cx="252" cy="18" r="9" fill="#ef4444"/>
+          <text x="252" y="22" font-size="9" font-weight="800" fill="#ffffff" text-anchor="middle">×</text>
+          <circle cx="334" cy="18" r="9" fill="#ef4444"/>
+          <text x="334" y="22" font-size="9" font-weight="800" fill="#ffffff" text-anchor="middle">×</text>
+        </g>
+        <line x1="0" y1="92" x2="408" y2="92" stroke="#e2e8f0"/>
+
+        <!-- Globex -->
+        <g transform="translate(0,102)">
+          <text x="14" y="14" font-size="10" font-weight="700" fill="#0f172a">Globex</text>
+          <text x="14" y="26" font-family="ui-monospace, monospace" font-size="8" fill="#94a3b8">GROWTH · EU · b41</text>
+          <circle cx="170" cy="18" r="9" fill="#10b981"/>
+          <text x="170" y="22" font-size="9" font-weight="800" fill="#ffffff" text-anchor="middle">✓</text>
+          <circle cx="252" cy="18" r="9" fill="#ef4444"/>
+          <text x="252" y="22" font-size="9" font-weight="800" fill="#ffffff" text-anchor="middle">×</text>
+          <circle cx="334" cy="18" r="9" fill="#ef4444"/>
+          <text x="334" y="22" font-size="9" font-weight="800" fill="#ffffff" text-anchor="middle">×</text>
+        </g>
+        <line x1="0" y1="142" x2="408" y2="142" stroke="#e2e8f0"/>
+
+        <!-- SmallCo -->
+        <g transform="translate(0,152)">
+          <text x="14" y="14" font-size="10" font-weight="700" fill="#0f172a">SmallCo</text>
+          <text x="14" y="26" font-family="ui-monospace, monospace" font-size="8" fill="#94a3b8">FREE · NA · b12</text>
+          <circle cx="170" cy="18" r="9" fill="#ef4444"/>
+          <text x="170" y="22" font-size="9" font-weight="800" fill="#ffffff" text-anchor="middle">×</text>
+          <circle cx="252" cy="18" r="9" fill="#ef4444"/>
+          <text x="252" y="22" font-size="9" font-weight="800" fill="#ffffff" text-anchor="middle">×</text>
+          <circle cx="334" cy="18" r="9" fill="#ef4444"/>
+          <text x="334" y="22" font-size="9" font-weight="800" fill="#ffffff" text-anchor="middle">×</text>
+        </g>
+      </g>
+    </g>
+
+    <!-- Row 3: collapsed -->
+    <g transform="translate(22,488)">
+      <rect width="436" height="20" rx="10" fill="rgba(239,68,68,0.04)" stroke="rgba(239,68,68,0.18)"/>
+    </g>
+  </g>
+</svg>

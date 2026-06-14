@@ -29,8 +29,7 @@ Authorization observability for SaaS apps. Record every gated UI decision with t
 
 <br />
 
-<!-- Replace with: assets/hero.gif (10s loop of debug toggle → outlines bloom → hover → matrix → flag flip → matrix recomputes) -->
-<img src="assets/hero.gif" alt="Access Lens debug mode — every gated UI element outlined by reason, hover for the full reason graph + tenants × roles matrix" />
+<img src="assets/hero.svg" alt="Access Lens debug mode — every gated UI element outlined by reason, hover for the full reason graph + tenants × roles matrix" />
 
 </div>
 
@@ -147,16 +146,14 @@ Dashed = denied. Solid = allowed but gated.
   </td>
   <td width="50%" valign="top">
 
-<!-- Replace with: assets/screenshot-outlines.png -->
-<img src="assets/screenshot-outlines.png" alt="Sidebar items outlined by their primary reason type" />
+<img src="assets/screenshot-outlines.svg" alt="Sidebar items outlined by their primary reason type" />
 
   </td>
   </tr>
   <tr>
     <td width="50%" valign="top">
 
-<!-- Replace with: assets/screenshot-hover.png -->
-<img src="assets/screenshot-hover.png" alt="Hover card with reasons + tenants × roles matrix" />
+<img src="assets/screenshot-hover.svg" alt="Hover card with reasons + tenants × roles matrix" />
 
   </td>
   <td width="50%" valign="top">
@@ -184,8 +181,7 @@ The popover opens with two tabs:
   </td>
   <td width="50%" valign="top">
 
-<!-- Replace with: assets/screenshot-matrix.png -->
-<img src="assets/screenshot-matrix.png" alt="Access matrix view — surface × tenant × user grid" />
+<img src="assets/screenshot-matrix.svg" alt="Access matrix view — surface × tenant × user grid" />
 
   </td>
   </tr>

@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 580" width="540" height="580" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" role="img" aria-label="Hover popover showing the full reason graph and a tenants by roles matrix preview.">
+  <defs>
+    <filter id="pop3" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#0f172a" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <rect width="540" height="580" fill="#f8fafc"/>
+
+  <!-- Faint background sidebar item being hovered -->
+  <g transform="translate(40,30)" opacity="0.5">
+    <rect width="280" height="36" rx="9" fill="#ffffff" stroke="#fb923c" stroke-width="1.5" stroke-dasharray="5 4"/>
+    <circle cx="16" cy="18" r="4" fill="#ef4444"/>
+    <text x="32" y="22" font-size="13" fill="#94a3b8" text-decoration="line-through">Risk settings</text>
+  </g>
+
+  <!-- Anchor caret to popover -->
+  <path d="M 140 66 L 150 80 L 130 80 Z" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+
+  <!-- Popover -->
+  <g transform="translate(40,80)">
+    <rect width="460" height="470" rx="14" fill="#ffffff" stroke="#e2e8f0" filter="url(#pop3)"/>
+
+    <!-- Header -->
+    <g>
+      <rect x="20" y="20" width="62" height="20" rx="999" fill="rgba(239,68,68,0.16)"/>
+      <text x="51" y="34" font-size="9" font-weight="800" fill="#b91c1c" text-anchor="middle">CLOSED HERE</text>
+      <text x="92" y="36" font-size="14" font-weight="800" fill="#0f172a">Risk settings</text>
+      <text x="20" y="58" font-family="ui-monospace, monospace" font-size="10" fill="#64748b">sidebar_item · sidebar.risk</text>
+    </g>
+
+    <!-- Tabs -->
+    <g transform="translate(20,76)">
+      <rect width="420" height="28" rx="8" fill="#f1f5f9"/>
+      <rect width="100" height="28" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+      <text x="50" y="18" font-size="11" font-weight="700" fill="#0f172a" text-anchor="middle">Reasons</text>
+      <text x="200" y="18" font-size="11" fill="#64748b" text-anchor="middle">Tenants × Roles</text>
+      <text x="350" y="18" font-size="11" fill="#64748b" text-anchor="middle">Raw JSON</text>
+    </g>
+
+    <!-- Reason rows -->
+    <g transform="translate(20,120)" font-size="11">
+      <!-- pass: permission -->
+      <g>
+        <rect width="420" height="40" rx="8" fill="rgba(16,185,129,0.08)"/>
+        <text x="18" y="25" font-family="ui-monospace, monospace" font-size="13" font-weight="800" fill="#047857">+</text>
+        <rect x="36" y="10" width="58" height="16" rx="3" fill="rgba(56,189,248,0.18)"/>
+        <text x="65" y="22" font-size="9" font-weight="800" fill="#0369a1" text-anchor="middle">PERMISSION</text>
+        <text x="104" y="22" font-family="ui-monospace, monospace" font-weight="700" fill="#0f172a">risk.write</text>
+        <text x="104" y="34" fill="#475569">Owner has risk.write</text>
+      </g>
+      <!-- fail: plan -->
+      <g transform="translate(0,52)">
+        <rect width="420" height="40" rx="8" fill="rgba(239,68,68,0.10)"/>
+        <text x="18" y="25" font-family="ui-monospace, monospace" font-size="13" font-weight="800" fill="#b91c1c">×</text>
+        <rect x="36" y="10" width="40" height="16" rx="3" fill="rgba(251,191,36,0.22)"/>
+        <text x="56" y="22" font-size="9" font-weight="800" fill="#92400e" text-anchor="middle">PLAN</text>
+        <text x="86" y="22" font-family="ui-monospace, monospace" font-weight="700" fill="#b91c1c">≥ enterprise</text>
+        <text x="86" y="34" fill="#b91c1c">Tenant on "growth", needs enterprise</text>
+      </g>
+      <!-- pass: entitlement -->
+      <g transform="translate(0,104)">
+        <rect width="420" height="40" rx="8" fill="rgba(16,185,129,0.08)"/>
+        <text x="18" y="25" font-family="ui-monospace, monospace" font-size="13" font-weight="800" fill="#047857">+</text>
+        <rect x="36" y="10" width="60" height="16" rx="3" fill="rgba(16,185,129,0.20)"/>
+        <text x="66" y="22" font-size="9" font-weight="800" fill="#047857" text-anchor="middle">ENTITLEMENT</text>
+        <text x="106" y="22" font-family="ui-monospace, monospace" font-weight="700" fill="#0f172a">risk</text>
+        <text x="106" y="34" fill="#475569">Acme has risk entitlement</text>
+      </g>
+      <!-- fail: flag -->
+      <g transform="translate(0,156)">
+        <rect width="420" height="40" rx="8" fill="rgba(239,68,68,0.10)"/>
+        <text x="18" y="25" font-family="ui-monospace, monospace" font-size="13" font-weight="800" fill="#b91c1c">×</text>
+        <rect x="36" y="10" width="40" height="16" rx="3" fill="rgba(129,140,248,0.22)"/>
+        <text x="56" y="22" font-size="9" font-weight="800" fill="#4338ca" text-anchor="middle">FLAG</text>
+        <text x="86" y="22" font-family="ui-monospace, monospace" font-weight="700" fill="#b91c1c">risk_killswitch off</text>
+        <text x="86" y="34" fill="#b91c1c">Killswitch engaged — feature force-disabled</text>
+      </g>
+    </g>
+
+    <!-- Footer with mini-matrix preview -->
+    <g transform="translate(20,328)">
+      <text x="0" y="0" font-size="10" font-weight="700" fill="#94a3b8" letter-spacing="1">WHO ELSE CAN SEE THIS</text>
+
+      <g transform="translate(0,16)">
+        <rect width="420" height="108" rx="8" fill="#f8fafc"/>
+
+        <!-- Header -->
+        <g font-size="10" font-weight="700" fill="#475569" transform="translate(0,18)">
+          <text x="90" text-anchor="middle">Owner</text>
+          <text x="190" text-anchor="middle">Manager</text>
+          <text x="290" text-anchor="middle">Viewer</text>
+        </g>
+
+        <!-- Acme -->
+        <g transform="translate(12,40)">
+          <text x="0" y="14" font-size="11" font-weight="700" fill="#0f172a">Acme</text>
+          <text x="0" y="26" font-family="ui-monospace, monospace" font-size="8" fill="#94a3b8">ENTERPRISE</text>
+          <circle cx="78" cy="14" r="9" fill="#10b981"/>
+          <text x="78" y="18" font-size="9" font-weight="800" fill="#ffffff" text-anchor="middle">✓</text>
+          <circle cx="178" cy="14" r="9" fill="#ef4444"/>
+          <text x="178" y="18" font-size="9" font-weight="800" fill="#ffffff" text-anchor="middle">×</text>
+          <circle cx="278" cy="14" r="9" fill="#ef4444"/>
+          <text x="278" y="18" font-size="9" font-weight="800" fill="#ffffff" text-anchor="middle">×</text>
+        </g>
+
+        <!-- Globex -->
+        <g transform="translate(12,76)">
+          <text x="0" y="14" font-size="11" font-weight="700" fill="#0f172a">Globex</text>
+          <text x="0" y="26" font-family="ui-monospace, monospace" font-size="8" fill="#94a3b8">GROWTH</text>
+          <circle cx="78" cy="14" r="9" fill="#ef4444"/>
+          <text x="78" y="18" font-size="9" font-weight="800" fill="#ffffff" text-anchor="middle">×</text>
+          <circle cx="178" cy="14" r="9" fill="#ef4444"/>
+          <text x="178" y="18" font-size="9" font-weight="800" fill="#ffffff" text-anchor="middle">×</text>
+          <circle cx="278" cy="14" r="9" fill="#ef4444"/>
+          <text x="278" y="18" font-size="9" font-weight="800" fill="#ffffff" text-anchor="middle">×</text>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

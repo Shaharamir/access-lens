@@ -1,0 +1,241 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 640" width="1280" height="640" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" role="img" aria-label="Access Lens debug mode showing outlined sidebar items and a tenants by roles matrix popover.">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eef2ff"/>
+      <stop offset="60%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#e0f2fe"/>
+    </linearGradient>
+    <linearGradient id="grad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#0891b2"/>
+    </linearGradient>
+    <filter id="card" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#0f172a" flood-opacity="0.10"/>
+    </filter>
+    <filter id="pop">
+      <feDropShadow dx="0" dy="18" stdDeviation="20" flood-color="#0f172a" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <rect width="1280" height="640" fill="url(#bg)"/>
+
+  <!-- Browser window -->
+  <g transform="translate(64,72)">
+    <rect width="1152" height="496" rx="14" fill="#ffffff" filter="url(#card)" stroke="#e2e8f0" stroke-width="1"/>
+    <rect width="1152" height="42" rx="14" fill="#f1f5f9"/>
+    <rect y="28" width="1152" height="14" fill="#f1f5f9"/>
+    <circle cx="22" cy="21" r="6" fill="#ef4444"/>
+    <circle cx="42" cy="21" r="6" fill="#f59e0b"/>
+    <circle cx="62" cy="21" r="6" fill="#10b981"/>
+    <rect x="100" y="11" width="320" height="20" rx="10" fill="#e2e8f0"/>
+    <text x="116" y="25" font-size="10" fill="#64748b">access-lens.dev / billing</text>
+
+    <!-- Sidebar -->
+    <g transform="translate(0,42)">
+      <rect width="248" height="454" fill="#fafbfc"/>
+      <rect x="248" width="1" height="454" fill="#e2e8f0"/>
+      <text x="20" y="36" font-size="10" font-weight="700" fill="#94a3b8" letter-spacing="1.5">WORKSPACE · ACME</text>
+
+      <!-- Items -->
+      <g transform="translate(14,52)">
+        <!-- Home -->
+        <rect width="220" height="34" rx="8" fill="#eff6ff"/>
+        <circle cx="14" cy="17" r="3" fill="#2563eb"/>
+        <text x="30" y="21" font-size="13" font-weight="600" fill="#0f172a">Home</text>
+
+        <!-- Dashboard - allowed permission -->
+        <g transform="translate(0,40)">
+          <rect width="220" height="34" rx="8" fill="#ffffff" stroke="#38bdf8" stroke-width="1.5"/>
+          <circle cx="14" cy="17" r="3" fill="#10b981"/>
+          <text x="30" y="21" font-size="13" fill="#334155">Dashboard</text>
+          <rect x="160" y="9" width="48" height="16" rx="999" fill="rgba(56,189,248,0.18)"/>
+          <text x="184" y="20" font-size="8" font-weight="800" fill="#0369a1" text-anchor="middle">PERM</text>
+        </g>
+
+        <!-- Billing - allowed entitlement -->
+        <g transform="translate(0,80)">
+          <rect width="220" height="34" rx="8" fill="#ffffff" stroke="#10b981" stroke-width="1.5"/>
+          <circle cx="14" cy="17" r="3" fill="#10b981"/>
+          <text x="30" y="21" font-size="13" fill="#334155">Billing</text>
+          <rect x="160" y="9" width="48" height="16" rx="999" fill="rgba(16,185,129,0.20)"/>
+          <text x="184" y="20" font-size="8" font-weight="800" fill="#047857" text-anchor="middle">ENT</text>
+        </g>
+
+        <!-- Reports - allowed flag -->
+        <g transform="translate(0,120)">
+          <rect width="220" height="34" rx="8" fill="#ffffff" stroke="#818cf8" stroke-width="1.5"/>
+          <circle cx="14" cy="17" r="3" fill="#10b981"/>
+          <text x="30" y="21" font-size="13" fill="#334155">Reports</text>
+          <rect x="160" y="9" width="48" height="16" rx="999" fill="rgba(129,140,248,0.22)"/>
+          <text x="184" y="20" font-size="8" font-weight="800" fill="#4338ca" text-anchor="middle">FLAG</text>
+        </g>
+
+        <!-- Payouts - denied entitlement (dashed) -->
+        <g transform="translate(0,160)">
+          <rect width="220" height="34" rx="8" fill="#ffffff" stroke="#f87171" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <circle cx="14" cy="17" r="3" fill="#ef4444"/>
+          <text x="30" y="21" font-size="13" fill="#94a3b8" text-decoration="line-through">Payouts</text>
+          <rect x="160" y="9" width="48" height="16" rx="999" fill="rgba(16,185,129,0.20)"/>
+          <text x="184" y="20" font-size="8" font-weight="800" fill="#047857" text-anchor="middle">ENT</text>
+        </g>
+
+        <!-- Risk - denied plan (dashed amber) -->
+        <g transform="translate(0,200)">
+          <rect width="220" height="34" rx="8" fill="#ffffff" stroke="#fb923c" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <circle cx="14" cy="17" r="3" fill="#ef4444"/>
+          <text x="30" y="21" font-size="13" fill="#94a3b8" text-decoration="line-through">Risk</text>
+          <rect x="160" y="9" width="48" height="16" rx="999" fill="rgba(251,191,36,0.22)"/>
+          <text x="184" y="20" font-size="8" font-weight="800" fill="#92400e" text-anchor="middle">PLAN</text>
+        </g>
+
+        <!-- Audit log - tenant config dashed -->
+        <g transform="translate(0,240)">
+          <rect width="220" height="34" rx="8" fill="#ffffff" stroke="#f472b6" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <circle cx="14" cy="17" r="3" fill="#ef4444"/>
+          <text x="30" y="21" font-size="13" fill="#94a3b8" text-decoration="line-through">Audit log</text>
+          <rect x="160" y="9" width="48" height="16" rx="999" fill="rgba(244,114,182,0.22)"/>
+          <text x="184" y="20" font-size="8" font-weight="800" fill="#be185d" text-anchor="middle">TC</text>
+        </g>
+
+        <!-- Settings - allowed condition -->
+        <g transform="translate(0,288)">
+          <rect width="220" height="34" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+          <circle cx="14" cy="17" r="3" fill="#10b981"/>
+          <text x="30" y="21" font-size="13" fill="#334155">Settings</text>
+          <rect x="160" y="9" width="48" height="16" rx="999" fill="rgba(148,163,184,0.22)"/>
+          <text x="184" y="20" font-size="8" font-weight="800" fill="#475569" text-anchor="middle">COND</text>
+        </g>
+      </g>
+
+      <text x="20" y="430" font-size="10" fill="#94a3b8">DEBUG · 4 allowed · 3 denied</text>
+    </g>
+
+    <!-- Main content - Matrix popover -->
+    <g transform="translate(286,76)">
+      <!-- Surface header -->
+      <text x="0" y="0" font-size="11" font-weight="700" fill="#94a3b8" letter-spacing="1">SURFACE · sidebar_item</text>
+      <text x="0" y="30" font-size="22" font-weight="800" fill="#0f172a">Payouts</text>
+      <text x="0" y="52" font-size="13" fill="#64748b">denied · because tenant lacks entitlement</text>
+
+      <!-- Reasons card -->
+      <g transform="translate(0,76)">
+        <rect width="370" height="180" rx="12" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" filter="url(#pop)"/>
+        <text x="16" y="24" font-size="11" font-weight="700" fill="#0f172a" letter-spacing="0.5">REASONS</text>
+
+        <!-- Reason rows -->
+        <g transform="translate(12,38)" font-size="12">
+          <g>
+            <rect width="346" height="28" rx="7" fill="rgba(16,185,129,0.08)"/>
+            <text x="14" y="18" font-family="ui-monospace, monospace" font-size="11" font-weight="800" fill="#047857">+</text>
+            <rect x="30" y="8" width="48" height="13" rx="3" fill="rgba(56,189,248,0.18)"/>
+            <text x="54" y="18" font-family="ui-monospace, monospace" font-size="8" font-weight="800" fill="#0369a1" text-anchor="middle">PERM</text>
+            <text x="86" y="18" font-family="ui-monospace, monospace" fill="#0f172a">billing.read</text>
+          </g>
+          <g transform="translate(0,34)">
+            <rect width="346" height="28" rx="7" fill="rgba(239,68,68,0.10)"/>
+            <text x="14" y="18" font-family="ui-monospace, monospace" font-size="11" font-weight="800" fill="#b91c1c">×</text>
+            <rect x="30" y="8" width="48" height="13" rx="3" fill="rgba(16,185,129,0.20)"/>
+            <text x="54" y="18" font-family="ui-monospace, monospace" font-size="8" font-weight="800" fill="#047857" text-anchor="middle">ENT</text>
+            <text x="86" y="18" font-family="ui-monospace, monospace" fill="#b91c1c">payouts (Acme lacks)</text>
+          </g>
+          <g transform="translate(0,68)">
+            <rect width="346" height="28" rx="7" fill="rgba(16,185,129,0.08)"/>
+            <text x="14" y="18" font-family="ui-monospace, monospace" font-size="11" font-weight="800" fill="#047857">+</text>
+            <rect x="30" y="8" width="48" height="13" rx="3" fill="rgba(129,140,248,0.22)"/>
+            <text x="54" y="18" font-family="ui-monospace, monospace" font-size="8" font-weight="800" fill="#4338ca" text-anchor="middle">FLAG</text>
+            <text x="86" y="18" font-family="ui-monospace, monospace" fill="#0f172a">payouts_killswitch off</text>
+          </g>
+          <g transform="translate(0,102)">
+            <rect width="346" height="28" rx="7" fill="rgba(16,185,129,0.08)"/>
+            <text x="14" y="18" font-family="ui-monospace, monospace" font-size="11" font-weight="800" fill="#047857">+</text>
+            <rect x="30" y="8" width="48" height="13" rx="3" fill="rgba(251,191,36,0.22)"/>
+            <text x="54" y="18" font-family="ui-monospace, monospace" font-size="8" font-weight="800" fill="#92400e" text-anchor="middle">PLAN</text>
+            <text x="86" y="18" font-family="ui-monospace, monospace" fill="#0f172a">≥ growth (enterprise)</text>
+          </g>
+        </g>
+      </g>
+    </g>
+
+    <!-- Matrix widget on right -->
+    <g transform="translate(686,76)">
+      <rect width="442" height="380" rx="14" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" filter="url(#pop)"/>
+
+      <text x="20" y="28" font-size="11" font-weight="700" fill="#94a3b8" letter-spacing="1">TENANTS × ROLES</text>
+      <text x="20" y="54" font-size="17" font-weight="800" fill="#0f172a">Who can see Payouts?</text>
+
+      <!-- Tabs -->
+      <g transform="translate(20,72)">
+        <rect width="402" height="28" rx="8" fill="#f1f5f9"/>
+        <rect width="100" height="28" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+        <text x="50" y="18" font-size="11" font-weight="700" fill="#0f172a" text-anchor="middle">Billing</text>
+        <text x="150" y="18" font-size="11" fill="#64748b" text-anchor="middle">Payouts</text>
+        <text x="250" y="18" font-size="11" fill="#64748b" text-anchor="middle">Reports</text>
+        <text x="350" y="18" font-size="11" fill="#64748b" text-anchor="middle">Risk</text>
+      </g>
+
+      <!-- Grid -->
+      <g transform="translate(20,118)">
+        <!-- Header row -->
+        <rect width="402" height="38" rx="8" fill="#f8fafc"/>
+        <text x="14" y="24" font-family="ui-monospace, monospace" font-size="10" fill="#94a3b8">tenant ↓ · role →</text>
+        <g font-size="11" font-weight="700" fill="#0f172a">
+          <text x="180" y="20" text-anchor="middle">Owner</text>
+          <text x="180" y="32" font-size="9" font-weight="500" fill="#94a3b8" text-anchor="middle">6 perms</text>
+          <text x="280" y="20" text-anchor="middle">Manager</text>
+          <text x="280" y="32" font-size="9" font-weight="500" fill="#94a3b8" text-anchor="middle">4 perms</text>
+          <text x="370" y="20" text-anchor="middle">Viewer</text>
+          <text x="370" y="32" font-size="9" font-weight="500" fill="#94a3b8" text-anchor="middle">2 perms</text>
+        </g>
+
+        <!-- Acme row -->
+        <g transform="translate(0,44)">
+          <rect width="402" height="56" rx="8" fill="rgba(16,185,129,0.04)"/>
+          <text x="14" y="26" font-size="12" font-weight="700" fill="#0f172a">Acme</text>
+          <text x="14" y="42" font-family="ui-monospace, monospace" font-size="9" fill="#94a3b8">ENTERPRISE</text>
+          <circle cx="180" cy="28" r="11" fill="#10b981"/>
+          <text x="180" y="32" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">✓</text>
+          <circle cx="280" cy="28" r="11" fill="#10b981"/>
+          <text x="280" y="32" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">✓</text>
+          <circle cx="370" cy="28" r="11" fill="#ef4444"/>
+          <text x="370" y="32" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">×</text>
+        </g>
+
+        <!-- Globex row -->
+        <g transform="translate(0,108)">
+          <rect width="402" height="56" rx="8" fill="rgba(239,68,68,0.03)"/>
+          <text x="14" y="26" font-size="12" font-weight="700" fill="#0f172a">Globex</text>
+          <text x="14" y="42" font-family="ui-monospace, monospace" font-size="9" fill="#94a3b8">GROWTH</text>
+          <circle cx="180" cy="28" r="11" fill="#ef4444"/>
+          <text x="180" y="32" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">×</text>
+          <circle cx="280" cy="28" r="11" fill="#ef4444"/>
+          <text x="280" y="32" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">×</text>
+          <circle cx="370" cy="28" r="11" fill="#ef4444"/>
+          <text x="370" y="32" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">×</text>
+        </g>
+
+        <!-- SmallCo row -->
+        <g transform="translate(0,172)">
+          <rect width="402" height="56" rx="8" fill="rgba(239,68,68,0.03)"/>
+          <text x="14" y="26" font-size="12" font-weight="700" fill="#0f172a">SmallCo</text>
+          <text x="14" y="42" font-family="ui-monospace, monospace" font-size="9" fill="#94a3b8">FREE</text>
+          <circle cx="180" cy="28" r="11" fill="#ef4444"/>
+          <text x="180" y="32" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">×</text>
+          <circle cx="280" cy="28" r="11" fill="#ef4444"/>
+          <text x="280" y="32" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">×</text>
+          <circle cx="370" cy="28" r="11" fill="#ef4444"/>
+          <text x="370" y="32" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">×</text>
+        </g>
+      </g>
+
+      <text x="20" y="356" font-family="ui-monospace, monospace" font-size="10" fill="#64748b">open <tspan font-weight="800" fill="#10b981">2</tspan> / 9</text>
+    </g>
+  </g>
+
+  <!-- Top-left brand chip -->
+  <g transform="translate(64,32)">
+    <rect width="160" height="28" rx="14" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" filter="url(#card)"/>
+    <circle cx="16" cy="14" r="6" fill="url(#grad)"/>
+    <text x="30" y="18" font-size="11" font-weight="700" fill="#0f172a">Access Lens</text>
+    <text x="115" y="18" font-size="10" font-weight="600" fill="#64748b">v0.1</text>
+  </g>
+</svg>
