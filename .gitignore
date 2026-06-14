@@ -22,3 +22,6 @@ docs/.vitepress/dist/
 .idea/
 *.swp
 *.swo
+
+# Local-only video assets (Remotion scratch)
+remotion-video/
