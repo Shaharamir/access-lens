@@ -18,7 +18,7 @@ Authorization observability for SaaS apps. Record every gated UI decision with t
 </p>
 
 <p align="center">
-  <a href="https://access-lens.dev"><strong>Live demo</strong></a>
+  <a href="https://access-lens-theta.vercel.app"><strong>Live demo</strong></a>
   ·
   <a href="docs/llm-context.md"><strong>LLM context</strong></a>
   ·
@@ -256,7 +256,7 @@ pnpm dev:demo
 
 Open `http://localhost:5173`. Toggle **Debug** in the header — outlines bloom across every gated surface. Hover any one for the reason graph. Sidebar → **Flag inspector** / **Access matrix** for the standalone power-tool views.
 
-Or skip the clone: **[access-lens.dev](https://access-lens.dev)** runs it live.
+Or skip the clone: **[access-lens.dev](https://access-lens-theta.vercel.app)** runs it live.
 
 ## 🤖 LLM tooling
 

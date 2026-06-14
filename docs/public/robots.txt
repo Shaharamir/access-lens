@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://access-lens.dev/sitemap.xml
+Sitemap: https://access-lens-theta.vercel.app/sitemap.xml

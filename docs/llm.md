@@ -8,7 +8,7 @@ description: Single-paste context bundle for Cursor / Claude / Copilot Chat / Co
 Everything Cursor, Claude, Copilot Chat, Continue, or Codex needs to write correct, typed Access Lens code on the first try. **Click the copy button in the top-right of the block below**, paste into your AI tool's context, and ask away.
 
 ::: tip Also available
-- [`/llms.txt`](https://access-lens.dev/llms.txt) — llmstxt.org-style index your IDE may auto-discover
+- [`/llms.txt`](https://access-lens-theta.vercel.app/llms.txt) — llmstxt.org-style index your IDE may auto-discover
 - [`/llm-context`](/llm-context) — the same content as a navigable docs page with section anchors
 :::
 

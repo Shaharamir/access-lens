@@ -12,50 +12,50 @@ Access Lens is not a flag SDK or RBAC library. It's an *observability layer* ove
 
 ## Docs
 
-- [What is Access Lens?](https://access-lens.dev/guide/what-is-it): Problem it solves, target users
-- [Install](https://access-lens.dev/guide/install): npm/pnpm/yarn/bun commands
-- [Quick start](https://access-lens.dev/guide/quick-start): Five-minute setup
-- [Concepts](https://access-lens.dev/guide/concepts): Nodes, reasons, snapshots, debug mode
-- [Access control models](https://access-lens.dev/guide/access-control-models): RBAC, ABAC, PBAC, ReBAC compatibility
-- [defineAccessLens](https://access-lens.dev/guide/define-access-lens): Typed lens config
-- [Permissions](https://access-lens.dev/guide/permissions): `al.permission(key, granted)`
-- [Plans & entitlements](https://access-lens.dev/guide/plans-entitlements): Ordered plans, boolean entitlements
-- [Feature flags](https://access-lens.dev/guide/feature-flags): boolean/variant/percent/date/killswitch
-- [Surfaces](https://access-lens.dev/guide/surfaces): Typed surface IDs
-- [Backend integration](https://access-lens.dev/guide/backend-integration): Four wiring patterns
-- [AccessLensProvider](https://access-lens.dev/guide/provider): React provider + debug mode
-- [AccessGate](https://access-lens.dev/guide/access-gate): The gate component
-- [Hooks](https://access-lens.dev/guide/hooks): `useAccessGate`, `useAccessLensSnapshot`
-- [Debug overlay](https://access-lens.dev/guide/debug-overlay): Floating panel + hover highlights
+- [What is Access Lens?](https://access-lens-theta.vercel.app/guide/what-is-it): Problem it solves, target users
+- [Install](https://access-lens-theta.vercel.app/guide/install): npm/pnpm/yarn/bun commands
+- [Quick start](https://access-lens-theta.vercel.app/guide/quick-start): Five-minute setup
+- [Concepts](https://access-lens-theta.vercel.app/guide/concepts): Nodes, reasons, snapshots, debug mode
+- [Access control models](https://access-lens-theta.vercel.app/guide/access-control-models): RBAC, ABAC, PBAC, ReBAC compatibility
+- [defineAccessLens](https://access-lens-theta.vercel.app/guide/define-access-lens): Typed lens config
+- [Permissions](https://access-lens-theta.vercel.app/guide/permissions): `al.permission(key, granted)`
+- [Plans & entitlements](https://access-lens-theta.vercel.app/guide/plans-entitlements): Ordered plans, boolean entitlements
+- [Feature flags](https://access-lens-theta.vercel.app/guide/feature-flags): boolean/variant/percent/date/killswitch
+- [Surfaces](https://access-lens-theta.vercel.app/guide/surfaces): Typed surface IDs
+- [Backend integration](https://access-lens-theta.vercel.app/guide/backend-integration): Four wiring patterns
+- [AccessLensProvider](https://access-lens-theta.vercel.app/guide/provider): React provider + debug mode
+- [AccessGate](https://access-lens-theta.vercel.app/guide/access-gate): The gate component
+- [Hooks](https://access-lens-theta.vercel.app/guide/hooks): `useAccessGate`, `useAccessLensSnapshot`
+- [Debug overlay](https://access-lens-theta.vercel.app/guide/debug-overlay): Floating panel + hover highlights
 
 ## API reference
 
-- [defineAccessLens](https://access-lens.dev/api/define-access-lens)
-- [evaluateAccess](https://access-lens.dev/api/evaluate-access)
-- [AccessLensClient](https://access-lens.dev/api/client)
-- [Types](https://access-lens.dev/api/types)
-- [createReactBindings](https://access-lens.dev/api/create-react-bindings)
-- [AccessGate (React)](https://access-lens.dev/api/access-gate)
-- [Hooks (React)](https://access-lens.dev/api/hooks)
-- [createAccessLensOverlay (DOM)](https://access-lens.dev/api/create-access-lens-overlay)
+- [defineAccessLens](https://access-lens-theta.vercel.app/api/define-access-lens)
+- [evaluateAccess](https://access-lens-theta.vercel.app/api/evaluate-access)
+- [AccessLensClient](https://access-lens-theta.vercel.app/api/client)
+- [Types](https://access-lens-theta.vercel.app/api/types)
+- [createReactBindings](https://access-lens-theta.vercel.app/api/create-react-bindings)
+- [AccessGate (React)](https://access-lens-theta.vercel.app/api/access-gate)
+- [Hooks (React)](https://access-lens-theta.vercel.app/api/hooks)
+- [createAccessLensOverlay (DOM)](https://access-lens-theta.vercel.app/api/create-access-lens-overlay)
 
 ## Recipes
 
-- [RBAC with permissions](https://access-lens.dev/recipes/rbac)
-- [Feature flag rollout](https://access-lens.dev/recipes/rollout)
-- [Plan-tier gating](https://access-lens.dev/recipes/plans)
-- [Tenant config](https://access-lens.dev/recipes/tenant-config)
-- [Variant routing](https://access-lens.dev/recipes/variant-routing)
-- [Gated select options](https://access-lens.dev/recipes/gated-select)
-- [/me/access endpoint](https://access-lens.dev/recipes/me-access-endpoint)
-- [NestJS](https://access-lens.dev/recipes/nestjs)
-- [Express + CASL](https://access-lens.dev/recipes/express-casl)
-- [Next.js middleware](https://access-lens.dev/recipes/nextjs-middleware)
-- [LaunchDarkly integration](https://access-lens.dev/recipes/launchdarkly)
+- [RBAC with permissions](https://access-lens-theta.vercel.app/recipes/rbac)
+- [Feature flag rollout](https://access-lens-theta.vercel.app/recipes/rollout)
+- [Plan-tier gating](https://access-lens-theta.vercel.app/recipes/plans)
+- [Tenant config](https://access-lens-theta.vercel.app/recipes/tenant-config)
+- [Variant routing](https://access-lens-theta.vercel.app/recipes/variant-routing)
+- [Gated select options](https://access-lens-theta.vercel.app/recipes/gated-select)
+- [/me/access endpoint](https://access-lens-theta.vercel.app/recipes/me-access-endpoint)
+- [NestJS](https://access-lens-theta.vercel.app/recipes/nestjs)
+- [Express + CASL](https://access-lens-theta.vercel.app/recipes/express-casl)
+- [Next.js middleware](https://access-lens-theta.vercel.app/recipes/nextjs-middleware)
+- [LaunchDarkly integration](https://access-lens-theta.vercel.app/recipes/launchdarkly)
 
 ## Full LLM context
 
-- [llms-full.txt](https://access-lens.dev/llms-full.txt): Complete typed-API reference + examples + common mistakes — single paste for Cursor / Claude / Copilot / Continue / Codex
+- [llms-full.txt](https://access-lens-theta.vercel.app/llms-full.txt): Complete typed-API reference + examples + common mistakes — single paste for Cursor / Claude / Copilot / Continue / Codex
 
 ## Optional
 

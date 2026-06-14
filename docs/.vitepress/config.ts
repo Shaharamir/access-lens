@@ -39,7 +39,7 @@ export default defineConfig({
           "rbac, abac, pbac, rebac, authorization, access control, feature flags, react permissions, casl, permit.io, openfga, debug overlay, saas, devtools, typescript",
       },
     ],
-    ["link", { rel: "canonical", href: "https://access-lens.dev" }],
+    ["link", { rel: "canonical", href: "https://access-lens-theta.vercel.app" }],
 
     [
       "meta",
@@ -58,11 +58,11 @@ export default defineConfig({
     ],
     ["meta", { property: "og:site_name", content: "Access Lens" }],
     ["meta", { property: "og:type", content: "website" }],
-    ["meta", { property: "og:url", content: "https://access-lens.dev" }],
+    ["meta", { property: "og:url", content: "https://access-lens-theta.vercel.app" }],
     ["meta", { property: "og:locale", content: "en_US" }],
     [
       "meta",
-      { property: "og:image", content: "https://access-lens.dev/og.png" },
+      { property: "og:image", content: "https://access-lens-theta.vercel.app/og.png" },
     ],
     ["meta", { property: "og:image:width", content: "1200" }],
     ["meta", { property: "og:image:height", content: "630" }],
@@ -94,7 +94,7 @@ export default defineConfig({
       "meta",
       {
         name: "twitter:image",
-        content: "https://access-lens.dev/og.png",
+        content: "https://access-lens-theta.vercel.app/og.png",
       },
     ],
 
@@ -109,7 +109,7 @@ export default defineConfig({
         operatingSystem: "Web",
         description:
           "Framework-agnostic authorization observability SDK for modern SaaS apps. Typed RBAC/ABAC/PBAC/ReBAC + feature flags + plans + entitlements with a hover-to-explain debug overlay.",
-        url: "https://access-lens.dev",
+        url: "https://access-lens-theta.vercel.app",
         author: {
           "@type": "Person",
           name: "Shahar Amir",
@@ -276,6 +276,6 @@ export default defineConfig({
   },
 
   sitemap: {
-    hostname: "https://access-lens.dev",
+    hostname: "https://access-lens-theta.vercel.app",
   },
 });
