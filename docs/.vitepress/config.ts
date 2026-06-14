@@ -130,7 +130,7 @@ export default defineConfig({
       { text: "API", link: "/api/define-access-lens" },
       { text: "Recipes", link: "/recipes/" },
       { text: "LLM", link: "/llm" },
-      { text: "Demo", link: "https://access-lens.dev/demo" },
+      { text: "Demo", link: "https://access-lens-demo-react.vercel.app/" },
       {
         text: "0.1.0",
         items: [

@@ -63,4 +63,4 @@ Access Lens is not a flag SDK or RBAC library. It's an *observability layer* ove
 - [npm @access-lens/core](https://www.npmjs.com/package/@access-lens/core)
 - [npm @access-lens/react](https://www.npmjs.com/package/@access-lens/react)
 - [npm @access-lens/dom](https://www.npmjs.com/package/@access-lens/dom)
-- [Interactive demo](https://access-lens.dev/demo)
+- [Interactive demo](https://access-lens-demo-react.vercel.app/)
